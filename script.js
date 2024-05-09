@@ -14,24 +14,24 @@ numbers.forEach((number) => number.addEventListener("click", () => populateDispl
 operators.forEach((operator) => operator.addEventListener("click", () => populateDisplay(operator.textContent)));
 
 equal.addEventListener("click", () => {
-    if (display.textContent.includes('+')) {
+    if (displayValue.includes('+')) {
         operator = '+';
-        let array = display.textContent.split('+');
+        let array = displayValue.split('+');
         number1 = +array[0];
         number2 = +array[1];
-    } else if (display.textContent.includes('-')) {
+    } else if (displayValue.includes('-')) {
         operator = '-';
-        let array = display.textContent.split('-');
+        let array = displayValue.split('-');
         number1 = +array[0];
         number2 = +array[1];
-    } else if (display.textContent.includes('*')) {
+    } else if (displayValue.includes('*')) {
         operator = '*';
-        let array = display.textContent.split('*');
+        let array = displayValue.split('*');
         number1 = +array[0];
         number2 = +array[1];
-    } else if (display.textContent.includes('/')) {
+    } else if (displayValue.includes('/')) {
         operator = '/';
-        let array = display.textContent.split('/');
+        let array = displayValue.split('/');
         number1 = +array[0];
         number2 = +array[1];
     } 
@@ -73,7 +73,7 @@ function divide(a, b) {
 
 function populateDisplay(number, form = text) {
     if (form === text) {
-        display.textContent += number;
+        displayValue = display.textContent += number;
     } else {
         resultDisplay.textContent = number;
     }
