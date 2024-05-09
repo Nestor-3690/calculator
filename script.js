@@ -4,7 +4,9 @@ let number1, operator, number2;
 
 const display = document.querySelector("#result")
 const numbers = document.querySelectorAll(".number")
+const operators = document.querySelectorAll(".operator")
 numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)))
+operators.forEach((operator) => operator.addEventListener("click", () => populateDisplay(operator.textContent)))
 
 
 function operate(number1, operator, number2) {
