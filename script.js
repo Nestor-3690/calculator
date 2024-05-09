@@ -2,11 +2,16 @@ let displayValue;
 
 let number1, operator, number2;
 
-const display = document.querySelector("#result")
-const numbers = document.querySelectorAll(".number")
-const operators = document.querySelectorAll(".operator")
-numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)))
-operators.forEach((operator) => operator.addEventListener("click", () => populateDisplay(operator.textContent)))
+const display = document.querySelector("#result");
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
+
+const clear = document.querySelector("#clear");
+
+numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)));
+operators.forEach((operator) => operator.addEventListener("click", () => populateDisplay(operator.textContent)));
+
+clear.addEventListener("click", () => display.textContent = '');
 
 
 function operate(number1, operator, number2) {
