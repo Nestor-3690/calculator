@@ -1,4 +1,10 @@
+let displayValue;
+
 let number1, operator, number2;
+
+const display = document.querySelector("#result")
+const numbers = document.querySelectorAll(".number")
+numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)))
 
 
 function operate(number1, operator, number2) {
@@ -27,4 +33,8 @@ function multiply(a, b) {
 
 function divide(a, b) {
     return a / b;
+}
+
+function populateDisplay(number) {
+    display.textContent += number;
 }
