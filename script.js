@@ -2,14 +2,28 @@ let displayValue;
 
 let number1, operator, number2;
 
-const display = document.querySelector("#result");
+const display = document.querySelector("#text");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
+const equal = document.querySelector("#equal");
 const clearbtn = document.querySelector("#clear");
 
 numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)));
 operators.forEach((operator) => operator.addEventListener("click", () => populateDisplay(operator.textContent)));
+
+equal.addEventListener("click", () => {
+    if (display.textContent.includes('+')) {
+        operator = '+';
+        let array = display.textContent.split('+');
+        number1 = +array[0];
+        number2 = +array[1];
+    }
+    const result = operate(number1, operator, number2);
+    clear(display);
+    populateDisplay(result);
+
+})
 
 clearbtn.addEventListener("click", () => clear(display));
 
