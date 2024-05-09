@@ -3,6 +3,7 @@ let displayValue;
 let number1, operator, number2;
 
 const display = document.querySelector("#text");
+const resultDisplay = document.querySelector("#result");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
@@ -18,11 +19,25 @@ equal.addEventListener("click", () => {
         let array = display.textContent.split('+');
         number1 = +array[0];
         number2 = +array[1];
-    }
+    } else if (display.textContent.includes('-')) {
+        operator = '-';
+        let array = display.textContent.split('-');
+        number1 = +array[0];
+        number2 = +array[1];
+    } else if (display.textContent.includes('*')) {
+        operator = '*';
+        let array = display.textContent.split('*');
+        number1 = +array[0];
+        number2 = +array[1];
+    } else if (display.textContent.includes('/')) {
+        operator = '/';
+        let array = display.textContent.split('/');
+        number1 = +array[0];
+        number2 = +array[1];
+    } 
     const result = operate(number1, operator, number2);
     clear(display);
-    populateDisplay(result);
-
+    populateDisplay(result, result);
 })
 
 clearbtn.addEventListener("click", () => clear(display));
@@ -56,8 +71,12 @@ function divide(a, b) {
     return a / b;
 }
 
-function populateDisplay(number) {
-    display.textContent += number;
+function populateDisplay(number, form = text) {
+    if (form === text) {
+        display.textContent += number;
+    } else {
+        resultDisplay.textContent = number;
+    }
 }
 
 function clear(div) {
