@@ -11,34 +11,18 @@ const equal = document.querySelector("#equal");
 const clearbtn = document.querySelector("#clear");
 
 numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)));
-operators.forEach((operator) => operator.addEventListener("click", () => populateDisplay(operator.textContent)));
+operators.forEach((op) => op.addEventListener("click", () => {
+    if (number1 === undefined || number2 === undefined) {
+        number1 = displayValue;
+        operator = op.textContent;
+    } else {
+        const result = operate(number1, operator, number2);
+        clear(display);
+        populateDisplay(result);
+        number1 = result;
+    }
+}));
 
-equal.addEventListener("click", () => {
-    if (displayValue.includes('+')) {
-        operator = '+';
-        let array = displayValue.split('+');
-        number1 = +array[0];
-        number2 = +array[1];
-    } else if (displayValue.includes('-')) {
-        operator = '-';
-        let array = displayValue.split('-');
-        number1 = +array[0];
-        number2 = +array[1];
-    } else if (displayValue.includes('*')) {
-        operator = '*';
-        let array = displayValue.split('*');
-        number1 = +array[0];
-        number2 = +array[1];
-    } else if (displayValue.includes('/')) {
-        operator = '/';
-        let array = displayValue.split('/');
-        number1 = +array[0];
-        number2 = +array[1];
-    } 
-    const result = operate(number1, operator, number2);
-    clear(display);
-    populateDisplay(result, result);
-})
 
 clearbtn.addEventListener("click", () => clear(display));
 
@@ -82,3 +66,30 @@ function populateDisplay(number, form = text) {
 function clear(div) {
     div.textContent = '';
 }
+
+/* equal.addEventListener("click", () => {
+    if (displayValue.includes('+')) {
+        operator = '+';
+        let array = displayValue.split('+');
+        number1 = +array[0];
+        number2 = +array[1];
+    } else if (displayValue.includes('-')) {
+        operator = '-';
+        let array = displayValue.split('-');
+        number1 = +array[0];
+        number2 = +array[1];
+    } else if (displayValue.includes('*')) {
+        operator = '*';
+        let array = displayValue.split('*');
+        number1 = +array[0];
+        number2 = +array[1];
+    } else if (displayValue.includes('/')) {
+        operator = '/';
+        let array = displayValue.split('/');
+        number1 = +array[0];
+        number2 = +array[1];
+    } 
+    const result = operate(number1, operator, number2);
+    clear(display);
+    populateDisplay(result, result);
+}) */
