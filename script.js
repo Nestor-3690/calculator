@@ -16,13 +16,21 @@ operators.forEach((op) => op.addEventListener("click", () => {
         number1 = displayValue;
         operator = op.textContent;
     } else {
+        if (operator === undefined) {
+            operator = op.textContent;
+        }
         const result = operate(number1, operator, number2);
         clear(display);
         populateDisplay(result);
         number1 = result;
+        operator = op.textContent;
+        number2 = undefined;
     }
 }));
 
+equal.addEventListener("click", () => {
+
+})
 
 clearbtn.addEventListener("click", () => clear(display));
 
@@ -56,6 +64,9 @@ function divide(a, b) {
 }
 
 function populateDisplay(number, form = text) {
+    if (+display.textContent === number1) {
+        clear(display);
+    }
     if (form === text) {
         displayValue = display.textContent += number;
     } else {
