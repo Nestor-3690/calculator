@@ -1,5 +1,5 @@
 let displayValue;
-let isDefined = false;
+let isDefined = true;
 
 let number1, operator, number2;
 
@@ -32,6 +32,10 @@ operators.forEach((op) => op.addEventListener("click", () => {
 }));
 
 equal.addEventListener("click", () => {
+    if (number1 === undefined) {
+        populateDisplay(0);
+        isDefined = true;
+    }
     number2 = +displayValue;
     isDefined = true;
     const result = operate(number1, operator, number2);
@@ -42,7 +46,7 @@ equal.addEventListener("click", () => {
     number2 = undefined;
 })
 
-clearbtn.addEventListener("click", () => clear(display));
+clearbtn.addEventListener("click", () => clear(display, zero));
 
 
 function operate(number1, operator, number2) {
@@ -81,8 +85,12 @@ function populateDisplay(number) {
     displayValue = display.textContent += number;
 }
 
-function clear(div) {
-    div.textContent = '';
+function clear(div, zero = "base") {
+    if (zero === "base") {
+        div.textContent ='';
+    } else {
+        div.textContent = '0';
+    }
 }
 
 /* equal.addEventListener("click", () => {
