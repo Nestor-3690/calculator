@@ -4,7 +4,6 @@ let isDefined = true;
 let number1, operator, number2;
 
 const display = document.querySelector("#text");
-const resultDisplay = document.querySelector("#result");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
