@@ -12,9 +12,7 @@ const operators = document.querySelectorAll(".operator");
 const equal = document.querySelector("#equal");
 const clearbtn = document.querySelector("#clear");
 
-doc = document.querySelector("html");
-
-doc.addEventListener("keydown", (event) => {
+addEventListener("keydown", (event) => {
     if (+(event.key) < 10 || event.key === '.') {
         populateDisplay(event.key);
         if (event.key === '.') {
