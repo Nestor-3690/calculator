@@ -13,18 +13,19 @@ const clearbtn = document.querySelector("#clear");
 
 numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)));
 operators.forEach((op) => op.addEventListener("click", () => {
-    if (number1 === undefined || number2 === undefined) {
+    if (number1 === undefined) {
         number1 = +displayValue;
         operator = op.textContent;
         isDefined = true;
+    } else if (operator === undefined) {
+        operator = op.textContent;
     } else {
-        if (operator === undefined) {
-            operator = op.textContent;
-        }
+        number2 = +displayValue;
         const result = operate(number1, operator, number2);
         clear(display);
         populateDisplay(result);
         number1 = result;
+        isDefined = true;
         operator = op.textContent;
         number2 = undefined;
     }
@@ -37,6 +38,7 @@ equal.addEventListener("click", () => {
     populateDisplay(result);
     number1 = result;
     isDefined = true;
+    operator = undefined;
     number2 = undefined;
 })
 
@@ -71,16 +73,12 @@ function divide(a, b) {
     return a / b;
 }
 
-function populateDisplay(number, form = text) {
+function populateDisplay(number) {
     if (isDefined === true) {
         clear(display);
         isDefined = false;
     }
-    if (form === text) {
-        displayValue = display.textContent += number;
-    } else {
-        resultDisplay.textContent = number;
-    }
+    displayValue = display.textContent += number;
 }
 
 function clear(div) {
