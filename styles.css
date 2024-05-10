@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -11,12 +13,18 @@ body {
 }
 
 button {
-    font-family: Georgia;
+    font-family: "Graduate", serif;
+    font-weight: 400;
+    font-style: normal;
 }
+
 #calculator {
     background-color: black;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    font-family: "Graduate", serif;
+    font-weight: 400;
+    font-style: normal;
     gap: 2px;
     padding: 10px;
     width: fit-content;
