@@ -11,6 +11,7 @@ const operators = document.querySelectorAll(".operator");
 
 const equal = document.querySelector("#equal");
 const clearbtn = document.querySelector("#clear");
+const backspace = document.querySelector("#backspace")
 
 addEventListener("keydown", (event) => {
     if (+(event.key) < 10 || event.key === '.') {
@@ -71,6 +72,11 @@ clearbtn.addEventListener("click", () => {
     pointClicked = false;
     isDefined = true;
 });
+
+backspace.addEventListener("click", () => {
+    display.textContent = display.textContent.slice(0, -1);
+    displayValue = display.textContent;
+})
 
 
 function operate(number1, operator, number2) {
