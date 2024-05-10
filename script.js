@@ -22,6 +22,7 @@ operators.forEach((op) => op.addEventListener("click", () => {
         number1 = +displayValue;
         operator = op.textContent;
         isDefined = true;
+        pointClicked = false;
     } else {
         number2 = +displayValue;
         const result = operate(number1, operator, number2);
@@ -31,6 +32,7 @@ operators.forEach((op) => op.addEventListener("click", () => {
         isDefined = true;
         operator = op.textContent;
         number2 = undefined;
+        pointClicked = false;
     }
 }));
 
@@ -40,6 +42,7 @@ equal.addEventListener("click", () => {
         number1 = +displayValue
         isDefined = true;
         populateDisplay(number1);
+        pointClicked = false;
     } else {
     number2 = +displayValue;
     isDefined = true;
@@ -49,6 +52,7 @@ equal.addEventListener("click", () => {
     isDefined = true;
     operator = undefined;
     number2 = undefined;
+    pointClicked = false;
     }
 })
 
