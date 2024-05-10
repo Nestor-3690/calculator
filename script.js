@@ -74,8 +74,17 @@ clearbtn.addEventListener("click", () => {
 });
 
 backspace.addEventListener("click", () => {
+    length = display.textContent.length;
+    if (display.textContent.charAt(length - 1) === '.') {
+        console.log(display.textContent.charAt(length - 1))
+        pointClicked = false;
+    }
     display.textContent = display.textContent.slice(0, -1);
     displayValue = display.textContent;
+    if (displayValue === '') {
+        display.textContent = '0';
+        isDefined = true;
+    }
 })
 
 
