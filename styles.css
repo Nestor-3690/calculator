@@ -4,9 +4,10 @@
     box-sizing: border-box;
 }
 
-/* html {
-    background-color: darkcyan;
-} */
+html {
+    background-color: lightblue;
+}
+
 body {
     display: flex;
     justify-content: center;
