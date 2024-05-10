@@ -15,7 +15,24 @@ body {
 button {
     font-family: "Graduate", serif;
     font-weight: 400;
+    font-size: 40px;
     font-style: normal;
+}
+
+button#equal {
+    background-color: rgb(1, 255, 1);
+}
+
+button.number {
+    background-color: cyan;
+}
+
+button.operator {
+    background-color: red;
+}
+
+button.other {
+    background-color: rgb(236, 236, 236);
 }
 
 #calculator {
@@ -30,7 +47,7 @@ button {
     width: fit-content;
 }
 #display {
-    background-color: gray;
+    background-color: lightgray;
     display: flex;
     height: 100px;
     justify-content: right;
@@ -49,9 +66,10 @@ button {
 }
 
 #clearandbackspace > * {
-    height: 75px;
+    height: 80px;
     margin-top: 2px;
     width: 202px;
+    font-size: 30px;
 }
 
 #numbersandoperators > * {
@@ -59,7 +77,7 @@ button {
     gap: 2px;
 }
 .lines > * {
-    height: 75px;
+    height: 80px;
     margin-top: 2px;
     width: 100px;
 }
