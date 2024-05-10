@@ -1,4 +1,5 @@
 let displayValue;
+let isDefined = false;
 
 let number1, operator, number2;
 
@@ -13,8 +14,9 @@ const clearbtn = document.querySelector("#clear");
 numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)));
 operators.forEach((op) => op.addEventListener("click", () => {
     if (number1 === undefined || number2 === undefined) {
-        number1 = displayValue;
+        number1 = +displayValue;
         operator = op.textContent;
+        isDefined = true;
     } else {
         if (operator === undefined) {
             operator = op.textContent;
@@ -64,8 +66,9 @@ function divide(a, b) {
 }
 
 function populateDisplay(number, form = text) {
-    if (+display.textContent === number1) {
+    if (isDefined === true) {
         clear(display);
+        isDefined = false;
     }
     if (form === text) {
         displayValue = display.textContent += number;
