@@ -14,6 +14,7 @@ const clearbtn = document.querySelector("#clear");
 numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)));
 operators.forEach((op) => op.addEventListener("click", () => {
     if (number1 === undefined || operator === undefined) {
+        displayValue = display.textContent;
         number1 = +displayValue;
         operator = op.textContent;
         isDefined = true;
@@ -30,7 +31,8 @@ operators.forEach((op) => op.addEventListener("click", () => {
 }));
 
 equal.addEventListener("click", () => {
-    if (number1 === undefined) {
+    if (number1 === undefined || operator === undefined) {
+        displayValue = display.textContent;
         number1 = +displayValue
         isDefined = true;
         populateDisplay(number1);
@@ -46,7 +48,10 @@ equal.addEventListener("click", () => {
     }
 })
 
-clearbtn.addEventListener("click", () => clear(display, zero));
+clearbtn.addEventListener("click", () => {
+    clear(display, zero);
+    number1 = operator = number2 = undefined;
+});
 
 
 function operate(number1, operator, number2) {
@@ -74,7 +79,10 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return a / b;
+    if (b === 0) {
+        return "OH HO HO";
+    }
+    return +(a / b).toFixed(5);
 }
 
 function populateDisplay(number) {
