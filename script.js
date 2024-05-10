@@ -13,12 +13,10 @@ const clearbtn = document.querySelector("#clear");
 
 numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)));
 operators.forEach((op) => op.addEventListener("click", () => {
-    if (number1 === undefined) {
+    if (number1 === undefined || operator === undefined) {
         number1 = +displayValue;
         operator = op.textContent;
         isDefined = true;
-    } else if (operator === undefined) {
-        operator = op.textContent;
     } else {
         number2 = +displayValue;
         const result = operate(number1, operator, number2);
@@ -33,9 +31,10 @@ operators.forEach((op) => op.addEventListener("click", () => {
 
 equal.addEventListener("click", () => {
     if (number1 === undefined) {
-        populateDisplay(0);
+        number1 = +displayValue
         isDefined = true;
-    }
+        populateDisplay(number1);
+    } else {
     number2 = +displayValue;
     isDefined = true;
     const result = operate(number1, operator, number2);
@@ -44,6 +43,7 @@ equal.addEventListener("click", () => {
     isDefined = true;
     operator = undefined;
     number2 = undefined;
+    }
 })
 
 clearbtn.addEventListener("click", () => clear(display, zero));
