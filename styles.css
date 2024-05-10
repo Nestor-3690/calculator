@@ -9,8 +9,16 @@ html {
 }
 
 body {
+    align-items: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#presentation {
+    font-family: "Courier", serif;
+    font-size: 50px;
+    margin-top: 30px;
 }
 
 button {
