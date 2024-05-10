@@ -31,7 +31,13 @@ operators.forEach((op) => op.addEventListener("click", () => {
 }));
 
 equal.addEventListener("click", () => {
-
+    number2 = +displayValue;
+    isDefined = true;
+    const result = operate(number1, operator, number2);
+    populateDisplay(result);
+    number1 = result;
+    isDefined = true;
+    number2 = undefined;
 })
 
 clearbtn.addEventListener("click", () => clear(display));
