@@ -4,5 +4,5 @@
 
 This project's goal is to build a calculator using js, html and css.
 
-The calculator is now fully working. Some other features should be added soon.
-The user can now add points values and can type numbers (+ point and backspace) with his keyboard.
+The calculator allow the user to add, subtract, multiply and divide integers or numbers with floating points.
+The calculator is keyboard compatible so the user can type the numbers with it.
