@@ -59,6 +59,7 @@ equal.addEventListener("click", () => {
 clearbtn.addEventListener("click", () => {
     clear(display, zero);
     number1 = operator = number2 = undefined;
+    pointClicked = false;
 });
 
 
