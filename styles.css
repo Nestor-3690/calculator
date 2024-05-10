@@ -9,4 +9,23 @@
 #calculator {
     display: flex;
     flex-direction: column; 
+    gap: 2px;
+}
+#clearandbackspace {
+    display: flex;
+    gap: 2px;
+}
+
+#clearandbackspace > * {
+    height: 50px;
+    width: 202px;
+}
+
+#numbersandoperators > * {
+    display: flex;
+    gap: 2px;
+}
+.lines > * {
+    height: 50px;
+    width: 100px;
 }
