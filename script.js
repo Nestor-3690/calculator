@@ -80,7 +80,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        return "OH HO HO";
+        return "ERROR";
     }
     return +(a / b).toFixed(5);
 }
@@ -100,30 +100,3 @@ function clear(div, zero = "base") {
         div.textContent = '0';
     }
 }
-
-/* equal.addEventListener("click", () => {
-    if (displayValue.includes('+')) {
-        operator = '+';
-        let array = displayValue.split('+');
-        number1 = +array[0];
-        number2 = +array[1];
-    } else if (displayValue.includes('-')) {
-        operator = '-';
-        let array = displayValue.split('-');
-        number1 = +array[0];
-        number2 = +array[1];
-    } else if (displayValue.includes('*')) {
-        operator = '*';
-        let array = displayValue.split('*');
-        number1 = +array[0];
-        number2 = +array[1];
-    } else if (displayValue.includes('/')) {
-        operator = '/';
-        let array = displayValue.split('/');
-        number1 = +array[0];
-        number2 = +array[1];
-    } 
-    const result = operate(number1, operator, number2);
-    clear(display);
-    populateDisplay(result, result);
-}) */
