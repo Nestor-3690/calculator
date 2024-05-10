@@ -19,6 +19,8 @@ addEventListener("keydown", (event) => {
         if (event.key === '.') {
             pointClicked = true;
         }
+    } else if (event.key === "Backspace") {
+        clickBackspace();
     }
 })
 
@@ -73,19 +75,7 @@ clearbtn.addEventListener("click", () => {
     isDefined = true;
 });
 
-backspace.addEventListener("click", () => {
-    length = display.textContent.length;
-    if (display.textContent.charAt(length - 1) === '.') {
-        console.log(display.textContent.charAt(length - 1))
-        pointClicked = false;
-    }
-    display.textContent = display.textContent.slice(0, -1);
-    displayValue = display.textContent;
-    if (displayValue === '') {
-        display.textContent = '0';
-        isDefined = true;
-    }
-})
+backspace.addEventListener("click", () => clickBackspace())
 
 
 function operate(number1, operator, number2) {
@@ -134,5 +124,19 @@ function clear(div, zero = "base") {
         div.textContent ='';
     } else {
         div.textContent = '0';
+    }
+}
+
+function clickBackspace() {
+    length = display.textContent.length;
+    if (display.textContent.charAt(length - 1) === '.') {
+        console.log(display.textContent.charAt(length - 1))
+        pointClicked = false;
+    }
+    display.textContent = display.textContent.slice(0, -1);
+    displayValue = display.textContent;
+    if (displayValue === '') {
+        display.textContent = '0';
+        isDefined = true;
     }
 }
