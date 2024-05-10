@@ -1,10 +1,12 @@
 let displayValue;
 let isDefined = true;
+let pointClicked = false;
 
 let number1, operator, number2;
 
 const display = document.querySelector("#text");
 const numbers = document.querySelectorAll(".number");
+const point = document.querySelector("#point")
 const operators = document.querySelectorAll(".operator");
 
 const equal = document.querySelector("#equal");
@@ -66,15 +68,15 @@ function operate(number1, operator, number2) {
 }
 
 function add(a, b) {
-    return a + b;
+    return +(a + b).toFixed(5);
 }
 
 function subtract(a, b) {
-    return a - b;
+    return +(a - b).toFixed(5);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return +(a * b).toFixed(5);
 }
 
 function divide(a, b) {
