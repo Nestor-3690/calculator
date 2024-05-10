@@ -13,6 +13,9 @@ const equal = document.querySelector("#equal");
 const clearbtn = document.querySelector("#clear");
 
 numbers.forEach((number) => number.addEventListener("click", () => populateDisplay(number.textContent)));
+
+point.addEventListener("click", () => pointClicked = true)
+
 operators.forEach((op) => op.addEventListener("click", () => {
     if (number1 === undefined || operator === undefined) {
         displayValue = display.textContent;
@@ -91,7 +94,9 @@ function populateDisplay(number) {
         clear(display);
         isDefined = false;
     }
-    displayValue = display.textContent += number;
+    if (number !== '.' || pointClicked === false) {
+        displayValue = display.textContent += number;
+    }
 }
 
 function clear(div, zero = "base") {
